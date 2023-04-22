@@ -1,4 +1,4 @@
-"""Tests for register endpoint"""
+"""Tests for add to cart endpoint"""
 import pytest
 import json
 import os
@@ -21,12 +21,13 @@ class TestAddToCartEndpoint(object):
 	@pytest.mark.parametrize(["testcase","req", "response", "metadata"], test_params)
 	def test_add_to_cart(self, rest, testcase, req, response, metadata):
 		"""
-		Test method for register endpoint
+		Test method for add to cart endpoint
 		Args:
 			rest: REST fixture
 			testcase: testcase name
 			req: request from data.json
 			response: response from data.json
+			metadata: metadata for the test
 		"""
 		headers = {'Content-Type': 'application/json'}
 		relative_url = config.get_config()['endpoints']["ADD_TO_CART"].format(username=metadata["username"], product_name=metadata["product"])
