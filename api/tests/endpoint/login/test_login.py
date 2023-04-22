@@ -30,5 +30,3 @@ class TestLoginEndpoint(object):
 		LOG.info("Login test {}".format(res.json()))
 		assert res.status_code, response["code"]
 		assert res.text, response["message"]
-
-

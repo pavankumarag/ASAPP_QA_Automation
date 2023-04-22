@@ -244,4 +244,3 @@ class REST(object):
                                               response.text))
       retry_count = retry_count + 1
       time.sleep(5)
-

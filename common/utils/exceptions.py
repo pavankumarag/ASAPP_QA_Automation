@@ -15,5 +15,3 @@ class CommandExecutionError(Exception):
 
 class CommandTimeoutError(Exception):
   """Base class for commands execution timeout errors."""
-
-

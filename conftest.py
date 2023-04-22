@@ -19,6 +19,3 @@ def rest(request):
     ip = config.get_config()["login"]["ip"]
     rest = REST(ip=ip, username=username, password=password, port=port)
     return rest
-
-
-    
