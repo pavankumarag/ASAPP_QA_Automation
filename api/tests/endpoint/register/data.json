@@ -1,0 +1,24 @@
+{
+    "tests": [
+        {
+            "testcase": "Non existant username and password",
+            "request": {"username":"james", "password": "james123"},
+            "response": {"code": "200", "message": "User created successfully"}
+        },
+        {
+            "testcase": "Existant username and  password",
+            "request": {"username":"pavan", "password": "pavan123"},
+            "response": {"code": "409", "message": "Username \\\"{username}\\\" already exists"}
+        },
+        {
+            "testcase": "Empty username",
+            "request": {"username":"", "password": "pavan123"},
+            "response": {"code": "400", "message": "Username must be greater than 5 characters"}
+        },
+        {
+            "testcase": "Empty password",
+            "request": {"username":"pavan", "password": ""},
+            "response": {"code": "400", "message": "Password cannot be empty"}
+        }
+    ]
+}
