@@ -16,8 +16,8 @@ LOG.info("Test params {}".format(test_params))
 
 class TestLoginEndpoint(object):
 
-	@pytest.mark.parametrize(["testcase","req", "response"], test_params)
-	def test_login(self, rest, testcase, req, response):
+	@pytest.mark.parametrize(["testcase","req", "response", "metadata"], test_params)
+	def test_login(self, rest, testcase, req, response, metadata):
 		"""
 		Test method for login endpoint
 		Args:
@@ -25,6 +25,7 @@ class TestLoginEndpoint(object):
 			testcase: testcase name
 			req: request from data.json
 			response: response from data.json
+			metadata: metadata for the test
 		"""
 		if response["code"] == "200":
 			LOG.info("For valid login, we are making sure that the user is already registered")

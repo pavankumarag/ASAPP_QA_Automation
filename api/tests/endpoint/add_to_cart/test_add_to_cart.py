@@ -10,16 +10,16 @@ from common.utils.common import generate_test_params
 from api.facade.user_operations import UserActions
 from common.utils.exceptions import HTTPError
 
-LOG = configure_log(logging.DEBUG, __name__, "register_test_{}.log".format(time.time()))
+LOG = configure_log(logging.DEBUG, __name__, "add_to_cart_test_{}.log".format(time.time()))
 config = Config()
 test_params = generate_test_params(__file__)
 LOG.info("Test params {}".format(test_params))
 
 
-class TestRegisterEndpoint(object):
+class TestAddToCartEndpoint(object):
 
 	@pytest.mark.parametrize(["testcase","req", "response", "metadata"], test_params)
-	def test_register(self, rest, testcase, req, response, metadata):
+	def test_add_to_cart(self, rest, testcase, req, response, metadata):
 		"""
 		Test method for register endpoint
 		Args:
@@ -27,17 +27,10 @@ class TestRegisterEndpoint(object):
 			testcase: testcase name
 			req: request from data.json
 			response: response from data.json
-			metadata: metadata for the test
 		"""
-		if response["code"] == "200" or testcase == "Empty password":
-			LOG.info("To simulate new user always appending epoch to username")
-			req["username"] = req["username"] + str(time.time())
 		headers = {'Content-Type': 'application/json'}
-		relative_url = config.get_config()['endpoints']["REGISTER_USER"]
+		relative_url = config.get_config()['endpoints']["ADD_TO_CART"].format(username=metadata["username"], product_name=metadata["product"])
 		res = rest.post(relative_url=relative_url, headers=headers, data=req, raw_response=True)
-		LOG.info("Register test {}".format(res.json()))
+		LOG.info("Add to cart test {}".format(res.json()))
 		assert str(res.status_code) == response["code"]
-		if response["code"] == "409":
-			LOG.info("Populating specific user for 409 case for asserting purpose")
-			response["message"] = response["message"].format(username=req["username"])
 		assert response["message"] in res.text

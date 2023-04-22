@@ -3,12 +3,14 @@
         {
             "testcase": "Valid username and password",
             "request": {"username":"pavan", "password": "pavan123"},
-            "response": {"code": "200", "message": "Login succeeded."}
+            "response": {"code": "200", "message": "Login succeeded."},
+            "metadata": {}
         },
         {
             "testcase": "Invalid username and valid password",
             "request": {"username":"pavann", "password": "pavan123"},
-            "response": {"code": "401", "message": "Invalid username/password combo."}
+            "response": {"code": "401", "message": "Invalid username/password combo."},
+            "metadata": {}
         }
     ]
 }

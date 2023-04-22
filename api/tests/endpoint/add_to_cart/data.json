@@ -1,0 +1,35 @@
+{
+    "tests": [
+        {
+            "testcase": "add valid product and valid quantity",
+            "request": {"quantity":1},
+            "response": {"code": "200", "message": "QTY \\\"1\\\" of product \\\"ASAPP Pens\\\" added to cart"},
+            "metadata": {"username":"pavan", "product":"ASAPP Pens"}
+        },
+        {
+            "testcase": "add valid product and invalid quantity",
+            "request": {"quantity":-1},
+            "response": {"code": "400", "message": "Quantity must be greater than 0"},
+            "metadata": {"username":"pavan", "product":"ASAPP Pens"}
+        },
+        {
+            "testcase": "add valid product and zero quantity",
+            "request": {"quantity":0},
+            "response": {"code": "400", "message": "Quantity must be greater than 0"},
+            "metadata": {"username":"pavan", "product":"ASAPP Pens"}
+        },
+        {
+            "testcase": "add invalid product and valid quantity",
+            "request": {"quantity":1},
+            "response": {"code": "400", "message": "Product \\\"PP Pens\\\" does not exist."},
+            "metadata": {"username":"pavan", "product":"PP Pens"}
+        },
+        {
+            "testcase": "add invalid product and invalid quantity",
+            "request": {"quantity":-1},
+            "response": {"code": "400", "message": "Product \\\"PP Pens\\\" does not exist."},
+            "metadata": {"username":"pavan", "product":"PP Pens"}
+        }
+
+    ]
+}

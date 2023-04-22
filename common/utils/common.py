@@ -18,7 +18,7 @@ def generate_test_params(filename=__file__):
 	jdata = json.load(fp)
 	test_params = []
 	for testcase in jdata["tests"]:
-		test_params.append((testcase["testcase"], testcase["request"], testcase["response"]))
+		test_params.append((testcase["testcase"], testcase["request"], testcase["response"], testcase["metadata"]))
 	return test_params
 
 def generate_default_rest_config():
