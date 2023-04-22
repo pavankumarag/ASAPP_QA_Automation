@@ -1,0 +1,22 @@
+{
+    "login":{
+        "ip": "localhost",
+        "USERNAME": "pavan",
+        "PASSWORD": "pavan123",
+        "port": "5000"
+    },
+    "logger":{
+        "LEVEL": "logger.INFO"
+    },
+    "endpoints": {
+        "REGISTER_USER": "/users/register",
+        "LOGIN_USER": "/users/login",
+        "LOGOUT_USER": "/users/logout",
+        "GET_PRODUCTS": "/{username}/products",
+        "GET_PRODUCT": "/{username}/products/{product_name}",
+        "ADD_TO_CART": "/{username}/products/{product_name}/add",
+        "GET_CART": "/{username}/products/cart",
+        "CHECKOUT_CART": "/{username}/products/cart/checkout",
+        "REMOVE_FROM_CART": "/{username}/products/cart/{product_name}/remove"
+    }
+}
