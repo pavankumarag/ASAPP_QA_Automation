@@ -233,6 +233,11 @@ class REST(object):
         message = "[%s:%s]." % (response.status_code, response.text)
         LOG.debug("INTERNAL SERVER ERROR %s" % message)
         raise CommandExecutionError(message)
+      
+      if response.status_code == requests.codes.CONFLICT:
+        message = "[%s:%s]." % (response.status_code, response.text)
+        LOG.debug("CONFLICT %s" % message)
+        raise HTTPError(message)
 
       if retry_count == max_retries:
         LOG.debug("RESTError: %s response: %s" % (req_type, response.text))

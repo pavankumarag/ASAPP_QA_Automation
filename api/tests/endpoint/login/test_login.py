@@ -7,7 +7,7 @@ from common.config.config import Config
 from common.utils.logger import configure_log
 from common.utils.common import generate_test_params
 from api.facade.user_operations import UserActions
-from common.utils.exceptions import CommandExecutionError
+from common.utils.exceptions import HTTPError
 
 LOG = configure_log(logging.DEBUG, __name__, "test.log")
 config = Config()
@@ -30,7 +30,7 @@ class TestLoginEndpoint(object):
 			user_actions = UserActions(rest)
 			try:
 				user_actions.register(username=req["username"], password=req["password"])
-			except CommandExecutionError as e:
+			except HTTPError as e:
 				LOG.info(e)
 
 		headers = {'Content-Type': 'application/json'}
