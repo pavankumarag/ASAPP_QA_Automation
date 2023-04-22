@@ -1,6 +1,7 @@
 """ user operations facade like login, register, logout"""
 from common.config.config import Config
 from common.utils.rest import REST
+from common.utils.common import generate_default_rest_config
 
 class UserActions:
     """ UserActions class to implememt all user methods"""
@@ -12,10 +13,8 @@ class UserActions:
         """
         self._config = Config()
         if rest is None:
-            username = self._config.get_config()["login"]["USERNAME"]
-            password = self._config.get_config()["login"]["PASSWORD"]
-            port = self._config.get_config()["login"]["port"]
-            ip = self._config.get_config()["login"]["ip"]
+            # This is to run these methods independent of pytest framework
+            (username, password, port, ip) = generate_default_rest_config()
             self._rest = REST(ip=ip, username=username, password=password, port=port)
         else:
             self._rest = rest

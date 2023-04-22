@@ -1,6 +1,8 @@
 """common helper methods"""
 import json
 import os
+from common.config.config import Config
+config = Config()
 
 def generate_test_params(filename=__file__):
 	"""
@@ -18,3 +20,18 @@ def generate_test_params(filename=__file__):
 	for testcase in jdata["tests"]:
 		test_params.append((testcase["testcase"], testcase["request"], testcase["response"]))
 	return test_params
+
+def generate_default_rest_config():
+	"""
+    Generates default rest config
+    Returns:
+        username: username
+        password: password
+        port: port
+        ip: ip
+    """
+	username = config.get_config()["login"]["USERNAME"]
+	password = config.get_config()["login"]["PASSWORD"]
+	port = config.get_config()["login"]["port"]
+	ip = config.get_config()["login"]["ip"]
+	return (username, password, port, ip)
