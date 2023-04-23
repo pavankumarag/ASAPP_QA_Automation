@@ -1,0 +1,16 @@
+{
+    "tests": [
+        {
+            "testcase": "Valid username and password",
+            "request": {"username":"pavan", "password": "pavan123"},
+            "response": {"code": "200", "message": "Login succeeded."},
+            "metadata": {"username":"pavan", "password": "pavan123"}
+        },
+        {
+            "testcase": "Invalid username and valid password",
+            "request": {"username":"pavann", "password": "pavan123"},
+            "response": {"code": "401", "message": "Invalid username/password combo."},
+            "metadata": {"username":"pavann", "password": "pavan123"}
+        }
+    ]
+}
