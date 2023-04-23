@@ -41,6 +41,9 @@ class TestLogin(object):
 		LOG.info("Logging in with the username {}".format(metadata["username"]))
 		driver.get("http://localhost:3000")
 		login = Login_facade(driver)
-		assert login.login(metadata["username"], metadata["password"]) == True
+		if response["code"] == "200":
+			assert login.login(metadata["username"], metadata["password"]) == True
+		else:
+			assert login.login(metadata["username"], metadata["password"]) == False
 		
 		
