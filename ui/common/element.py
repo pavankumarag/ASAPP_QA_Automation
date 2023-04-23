@@ -2,6 +2,7 @@
 import selenium.webdriver.support.ui as ui
 from selenium.common.exceptions import TimeoutException
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.support import expected_conditions as EC
 
 class Element(object):
     """
