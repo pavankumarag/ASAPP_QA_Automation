@@ -1,4 +1,5 @@
 """ This is a file containing all element releated operations"""
+import selenium.webdriver.support.ui as ui
 from selenium.common.exceptions import TimeoutException
 from selenium.common.exceptions import NoSuchElementException
 
