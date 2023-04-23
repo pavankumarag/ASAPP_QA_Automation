@@ -1,0 +1,78 @@
+{
+    "machine_info": {
+        "node": "T3XJ736KQT.local",
+        "processor": "arm",
+        "machine": "arm64",
+        "python_compiler": "Clang 13.0.0 (clang-1300.0.29.30)",
+        "python_implementation": "CPython",
+        "python_implementation_version": "3.10.11",
+        "python_version": "3.10.11",
+        "python_build": [
+            "v3.10.11:7d4cc5aa85",
+            "Apr  4 2023 19:05:19"
+        ],
+        "release": "21.6.0",
+        "system": "Darwin",
+        "cpu": {
+            "python_version": "3.10.11.final.0 (64 bit)",
+            "cpuinfo_version": [
+                9,
+                0,
+                0
+            ],
+            "cpuinfo_version_string": "9.0.0",
+            "arch": "ARM_8",
+            "bits": 64,
+            "count": 10,
+            "arch_string_raw": "arm64",
+            "brand_raw": "Apple M1 Pro"
+        }
+    },
+    "commit_info": {
+        "id": "8544376c51edc23e402a69e8d4a4480403fac4d9",
+        "time": "2023-04-23T23:00:29+05:30",
+        "author_time": "2023-04-23T23:00:29+05:30",
+        "dirty": true,
+        "project": "ASAPP_QA_Automation",
+        "branch": "main"
+    },
+    "benchmarks": [
+        {
+            "group": null,
+            "name": "test_benchmark_login_api",
+            "fullname": "benchmark/test_login_api.py::test_benchmark_login_api",
+            "params": null,
+            "param": null,
+            "extra_info": {},
+            "options": {
+                "disable_gc": false,
+                "timer": "perf_counter",
+                "min_rounds": 5,
+                "max_time": 1.0,
+                "min_time": 5e-06,
+                "warmup": false
+            },
+            "stats": {
+                "min": 0.003049941698554903,
+                "max": 0.005832187499618158,
+                "mean": 0.00413917946908623,
+                "stddev": 0.0005663955114430438,
+                "rounds": 100,
+                "median": 0.004033802100457251,
+                "iqr": 0.0005868583481060336,
+                "q1": 0.0038178187503945084,
+                "q3": 0.004404677098500542,
+                "iqr_outliers": 6,
+                "stddev_outliers": 24,
+                "outliers": "24;6",
+                "ld15iqr": 0.003049941698554903,
+                "hd15iqr": 0.005302708403905854,
+                "ops": 241.59377660924687,
+                "total": 0.4139179469086231,
+                "iterations": 10
+            }
+        }
+    ],
+    "datetime": "2023-04-23T18:38:38.337940",
+    "version": "4.0.0"
+}
