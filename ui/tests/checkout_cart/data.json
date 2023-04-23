@@ -1,0 +1,10 @@
+{
+    "tests": [
+        {
+            "testcase": "Product",
+            "request": {},
+            "response": {},
+            "metadata": {"product_name":"ASAPP Pens", "quantity": "3"}
+        }
+    ]
+}

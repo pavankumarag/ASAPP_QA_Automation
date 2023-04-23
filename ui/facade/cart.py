@@ -2,6 +2,7 @@
 from selenium.common.exceptions import NoSuchElementException
 from ui.common.element import Element
 from ui.locators.cart import Cart
+from ui.common.click import Click
 
 class Cart_facade:
     """
@@ -15,6 +16,7 @@ class Cart_facade:
         """
         self.driver = driver
         self.element = Element(driver)
+        self.click = Click(driver)
 
     def get_current_quantity_in_cart(self, product_name=None):
         """
@@ -35,3 +37,10 @@ class Cart_facade:
             current_value_in_cart = 0
             return current_value_in_cart
         return current_value_in_cart
+    
+    def checkout_from_cart(self):
+        """
+        Checks out from cart
+        """
+        self.click.button(Cart.BUY)
+        self.element.is_element_present(Cart.BUY_SUCCESS_MSG)
