@@ -49,6 +49,7 @@ class Login_facade:
         if check_for_registered:
             user = UserActions()
             try:
+                LOG.info("Registering the user {}".format(username))
                 user.register(username=username, password=password)
             except HTTPError as e:
                 LOG.info(e)
