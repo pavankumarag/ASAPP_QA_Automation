@@ -36,7 +36,7 @@ def driver(request):
 		chrome_options.add_argument("--disable-extensions")
 		chrome_options.add_argument("disable-infobars")
 		chrome_options.add_argument("enable-automation")
-		wdriver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+		wdriver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), chrome_options=chrome_options)
 		wdriver.set_window_size(1680, 1050)
 	else:
 		fp = webdriver.FirefoxProfile()
