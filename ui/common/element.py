@@ -79,3 +79,15 @@ class Element(object):
             str : Current url of the browser
         """
         return self.driver.current_url
+    
+    def get_text(self, locator):
+        """
+        Gets text of the element
+        Args:
+            locator: locator of the element
+        Returns:
+            Text of the element
+        """
+        _element = self.driver.find_element(*locator)
+        return _element.text
+                 

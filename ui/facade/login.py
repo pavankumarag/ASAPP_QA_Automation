@@ -10,7 +10,8 @@ from ui.locators.store import Store
 from ui.common.wait import WaitHelper
 from ui.common.element import Element
 from selenium.common.exceptions import NoSuchElementException
-
+from api.facade.user_operations import UserActions
+from common.utils.exceptions import HTTPError
 
 LOG = configure_log(logging.INFO, __name__, "login_facade.log")
 
@@ -41,8 +42,16 @@ class Login_facade:
         config = Config()
         if username is None:
             username = config.get_config()["login"]["USERNAME"]
+            check_for_registered = True
         if password is None:
             password = config.get_config()["login"]["PASSWORD"]
+            check_for_registered = True
+        if check_for_registered:
+            user = UserActions()
+            try:
+                user.register(username=username, password=password)
+            except HTTPError as e:
+                LOG.info(e)
         self.input.textbox(username, Login.USERNAME)
         self.input.textbox(password, Login.PASSWORD)
         self.click.button(Login.LOGIN_BUTTON)
