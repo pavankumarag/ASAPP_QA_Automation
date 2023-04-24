@@ -7,7 +7,7 @@ Welcome to ASAPP_QA_Automation's documentation!
 ===============================================
 
 .. toctree::
-   Introduction
+   Introduction 
    Pre-requisites
    Test_Strategy
    Tech_stack
@@ -46,7 +46,7 @@ Some higlights of the framework are:
 
 (1) Best in the class framework design using facade design patter, page object model design patter, factory design pattern(To be implemented)
 
-(2) Single framework for all the test layers like API, UI, API Benchmarking, API Performace
+(2) Single framework for all the test layers like API, UI, API Benchmarking, API Performace 
 
 (3) CI/CD implemented with github actions
 
@@ -57,6 +57,8 @@ Some higlights of the framework are:
 (6) Dockerised the whole framework for easy consumption
 
 (7) Code is written with doc strings, loggers and comments for easy understanding
+
+(8) Test data as a json so adding a new testase is as simple as adding new json blob( sometime may require minimal code change )
 
 Pre-requisites
 ===============
