@@ -34,8 +34,6 @@
 <h1>Welcome to ASAPP_QA_Automation’s documentation!<a class="headerlink" href="#welcome-to-asapp-qa-automation-s-documentation" title="Permalink to this heading">¶</a></h1>
 <section id="indices-and-tables">
 <h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading">¶</a></h2>
-<div class="toctree-wrapper compound">
-</div>
 <ol class="arabic simple">
 <li><p>Introduction</p></li>
 <li><p>Pre-requisites</p></li>
@@ -218,12 +216,11 @@
 </section>
 <section id="open-issues">
 <h1>Open Issues<a class="headerlink" href="#open-issues" title="Permalink to this heading">¶</a></h1>
+<ol class="arabic simple">
+<li><p>Bugs</p></li>
+</ol>
 <blockquote>
-<div><blockquote>
-<div><blockquote>
-<div><ol class="arabic simple">
-<li><dl class="simple">
-<dt>Bugs</dt><dd><ul class="simple">
+<div><ul class="simple">
 <li><dl class="simple">
 <dt>Descrepancy in swagger UI response message to actual message</dt><dd><ul>
 <li><p>Login 200 OK case -&gt; Swagger says “Operation successful”  but actual is “Login succeeded.”</p></li>
@@ -232,7 +229,8 @@
 </dd>
 </dl>
 </li>
-<li><p>Register: Empty username gets accepted</p></li>
+<li><dl class="simple">
+<dt>Register: Empty username gets accepted</dt><dd><ul>
 <li><p>Register: Empty password gets accepted</p></li>
 <li><p>No login check while adding the product to the cart</p></li>
 <li><p>Add_to_cart api is accepting invalid quantity values</p></li>
@@ -242,30 +240,38 @@
 </dd>
 </dl>
 </li>
-</ol>
-</div></blockquote>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="p">(</span><span class="n">asapp</span><span class="o">-</span><span class="n">challenge</span><span class="p">)</span> <span class="n">pkgovindraj</span><span class="nd">@T3XJ736KQT</span> <span class="n">ASAPP_QA_Automation</span> <span class="o">%</span> <span class="n">curl</span> <span class="o">-</span><span class="n">s</span> <span class="o">-</span><span class="n">o</span> <span class="o">-</span>  <span class="o">-</span><span class="n">w</span> <span class="s2">&quot;%</span><span class="si">{http_code}</span><span class="s2">&quot;</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="o">-</span><span class="n">d</span>  <span class="s1">&#39;{&quot;quantity&quot;:2}&#39;</span> <span class="o">-</span><span class="n">H</span> <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">5000</span><span class="o">/</span><span class="n">pavan</span><span class="o">/</span><span class="n">products</span><span class="o">/</span><span class="n">ASAPP</span><span class="o">%</span><span class="mi">20</span><span class="n">Pens</span><span class="o">/</span><span class="n">add</span>
-        <span class="s2">&quot;QTY </span><span class="se">\&quot;</span><span class="s2">4</span><span class="se">\&quot;</span><span class="s2"> of product </span><span class="se">\&quot;</span><span class="s2">ASAPP Pens</span><span class="se">\&quot;</span><span class="s2"> added to cart&quot;</span>
-        <span class="mi">200</span><span class="o">%</span>
-        <span class="p">(</span><span class="n">asapp</span><span class="o">-</span><span class="n">challenge</span><span class="p">)</span> <span class="n">pkgovindraj</span><span class="nd">@T3XJ736KQT</span> <span class="n">ASAPP_QA_Automation</span> <span class="o">%</span>
-
-<span class="o">-</span> <span class="n">Response</span> <span class="n">message</span> <span class="n">could</span> <span class="n">be</span> <span class="n">better</span>
-        <span class="o">+</span> <span class="n">EG</span> <span class="s2">&quot;Product </span><span class="se">\&quot;</span><span class="s2">PP Pens</span><span class="se">\&quot;</span><span class="s2"> does not exist.&quot;</span> <span class="n">can</span> <span class="n">be</span> <span class="n">proper</span> <span class="n">like</span> <span class="s2">&quot;Product &quot;</span><span class="n">PP</span> <span class="n">Pens</span><span class="s2">&quot; does not exist.&quot;</span>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">asapp</span><span class="o">-</span><span class="n">challenge</span><span class="p">)</span> <span class="n">pkgovindraj</span><span class="nd">@T3XJ736KQT</span> <span class="n">ASAPP_QA_Automation</span> <span class="o">%</span> <span class="n">curl</span> <span class="o">-</span><span class="n">s</span> <span class="o">-</span><span class="n">o</span> <span class="o">-</span>  <span class="o">-</span><span class="n">w</span> <span class="s2">&quot;%</span><span class="si">{http_code}</span><span class="s2">&quot;</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="o">-</span><span class="n">d</span>  <span class="s1">&#39;{&quot;quantity&quot;:2}&#39;</span> <span class="o">-</span><span class="n">H</span> <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">5000</span><span class="o">/</span><span class="n">pavan</span><span class="o">/</span><span class="n">products</span><span class="o">/</span><span class="n">ASAPP</span><span class="o">%</span><span class="mi">20</span><span class="n">Pens</span><span class="o">/</span><span class="n">add</span>
+<span class="s2">&quot;QTY </span><span class="se">\&quot;</span><span class="s2">4</span><span class="se">\&quot;</span><span class="s2"> of product </span><span class="se">\&quot;</span><span class="s2">ASAPP Pens</span><span class="se">\&quot;</span><span class="s2"> added to cart&quot;</span>
+<span class="mi">200</span><span class="o">%</span>
+<span class="p">(</span><span class="n">asapp</span><span class="o">-</span><span class="n">challenge</span><span class="p">)</span> <span class="n">pkgovindraj</span><span class="nd">@T3XJ736KQT</span> <span class="n">ASAPP_QA_Automation</span> <span class="o">%</span>
 </pre></div>
 </div>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Response message could be better</dt><dd><ul>
+<li><p>EG “Product &quot;PP Pens&quot; does not exist.” can be proper like “Product “PP Pens” does not exist.”</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
 </div></blockquote>
-<ol class="arabic" start="2">
+<ol class="arabic simple" start="2">
 <li><dl class="simple">
 <dt>Improvement in framework</dt><dd><ul class="simple">
 <li><p>Test_login.py have 2 jsons(one for positive cases, one for negative cases) so we can have setup method to register user in login positive case</p></li>
 </ul>
 </dd>
 </dl>
-<ul class="simple">
+</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
 <li><p>Factory pattern</p></li>
 </ul>
-<blockquote>
-<div><ol class="arabic simple" start="3">
+</div></blockquote>
+<ol class="arabic simple" start="3">
 <li><dl class="simple">
 <dt>Improvement in product</dt><dd><ul class="simple">
 <li><p>Implement “Remove specific quantity of a product from Cart” feature.</p></li>
@@ -273,14 +279,8 @@
 </dd>
 </dl>
 </li>
-</ol>
-</div></blockquote>
-</li>
-</ol>
-<ol class="arabic simple" start="4">
 <li><p>HTTPS support</p></li>
 </ol>
-</div></blockquote>
 </section>
 <section id="id1">
 <h1>Indices and tables<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
