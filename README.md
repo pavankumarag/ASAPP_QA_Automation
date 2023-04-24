@@ -1,1 +1,236 @@
 # ASAPP_QA_Automation
+
+Content
+-------------------
+
+(1) Introduction
+ 
+(2) Pre-requisites
+   
+(3) Test Strategy
+
+(4) Tech stack
+
+(5) How to Run
+   
+(6) Reporting
+
+(7) CI/CD
+
+(8) Open Issues
+
+
+Introduction
+=============
+ASAPP_QA_Automation is a challenge to build and implement a test Strategy for a ecommerce store app built in REACT and python REST in the backend.
+
+This project attempts to QA the ecommerce store at multiple test layers.
+
+Some higlights of the framework are:
+
+(1) Best in the class framework design using facade design patter, page object model design patter, factory design pattern(To be implemented)
+
+(2) Single framework for all the test layers like API, UI, API Benchmarking, API Performace
+
+(3) CI/CD implemented with github actions
+
+(4) HTML reporting of the test run using pytest HTML
+
+(5) Best selenium tools used like docker selenium and webdrive manager
+
+(6) Dockerised the whole framework for easy consumption
+
+(7) Code is written with doc strings, loggers and comments for easy understanding
+
+Pre-requisites
+===============
+Download the zip
+
+framework structure as below
+
+.. code-block::
+
+   qa_auto_challenge_prj
+      /src
+         /api
+            Dockerfile
+         /ui
+            Dockerfile
+      /ASAPP_QA_Automation
+         Dockerfile
+      docker-compose.yml
+
+
+(1)  Build the Images for API and UI:
+
+.. code-block::
+
+    docker build ./src/api -t asapp-qa-challenge-api
+    
+    docker build ./src/ui -t asapp-qa-challenge-ui
+
+(2) Build the image for QA automation framework
+
+.. code-block::
+
+   docker build ./ASAPP_QA_Automation -t asapp-qa-challenge-qa
+
+Test Strategy
+=============
+
+Multiple layers of test is performed and as documented below
+
+(1) API layer testing
+   - API endpoints robustness testing
+   - An end to end workflow using APIs
+(2) UI layer testing
+   - Different UI workflows for multiple customer scenarios
+(3) API Benchmarking 
+   - API's are benchmarked to check on degradation
+(4) API performance 
+   - API's are checked with load and performance testing simulating actual production scenarios.
+
+Tech stack
+==========
+(1) pytest
+(2) selenium
+(3) html reporting
+(4) docker selenium and webdriver manager
+(5) github actions
+(6) documentation: sphinx and readthedocs 
+ 
+How to Run
+===========
+
+There are two ways to run
+
+Setup
+--------
+
+Download the zip, from the root directory run docker-compose
+
+.. code-block::
+
+   docker-compose up -d
+
+   Run the below curl commands
+
+   curl -s -o -  -w "%{http_code}" -X POST -d '{"username": "pavan", "password": "pavan123"}' -H 'Content-Type: application/json' http://localhost:5000/users/register
+
+   curl -s -o -  -w "%{http_code}" -X POST -d '{"username": "pavan", "password": "pavan123"}' -H 'Content-Type: application/json' http://localhost:5000/users/login
+
+.. warning::
+
+   Though this is handled in the code, some descrepencies are seen so running these curls for better test execution. This can be fixed in the product
+
+
+
+(1) Standalone
+-------------------
+
+Download the zip and framework structure is defined in Pre-requisites section.
+
+.. code-block::
+   :linenos:
+
+   python3 -m venv asapp-qa-challenge
+   source asapp-qa-challenge/bin/activate
+   pip install -r ASAPP_QA_Automation/requirements.txt
+   cd ASAPP_QA_Automation
+
+   API functional tests
+      - pytest -sv --capture sys --html=api_test_endpoints.html api/tests/endpoint
+      - pytest -sv --capture sys --html=api_test_workflows.html api/tests/workflow
+
+   UI tests
+      - pytest -sv --capture sys --html=ui_test.html ui/tests
+
+   API Benchmarking
+      - pytest --benchmark-save=benchmark benchmark/test_login_api.py
+      - pytest --benchmark-compare=0003 --benchmark-json=report.json --benchmark-histogram=benchmark --benchmark-compare-fail=median:0.002 --benchmark-compare-fail=max:0.005 benchmark/test_login_api.py
+   
+   API Performace
+      - locust -f performance/api/login.py --headless -u 100 -r 5
+
+(2) Docker
+-------------
+
+.. code-block::
+
+   docker exec -ti qa_auto_challenge_prj-qa-1 bash
+
+   pytest -sv api/tests
+
+.. warning::
+
+   Currently docker selenium and zalenium are crashing in Apple M1 so its recommended to run UI tests in standalone way.
+
+Reporting
+==========
+
+HTML reports are generated for every test run
+
+.. image:: images/html_report.png
+   :height: 200
+   :width: 300
+   :scale: 50
+   :alt: html_report
+
+
+For API benchmark testing, a histogram will be generated.
+
+.. image:: images/histogram.png
+   :height: 200
+   :width: 300
+   :scale: 50
+   :alt: histogram
+
+Further, jenkins allure report can be done along with daily emails and/or slack reporting.
+
+CI/CD
+======
+
+Github actions is implement for the automation repo.
+
+.. code-block::
+
+   https://github.com/pavankumarag/ASAPP_QA_Automation/actions
+
+.. warning::
+
+   Since product is hosted, currently github action workflow are failing, once the product is hosted in the internet, workflow will start passing.
+
+Open Issues
+=============
+
+(1) Bugs     
+
+   - Descrepancy in swagger UI response message to actual message
+	   + Login 200 OK case -> Swagger says "Operation successful"  but actual is "Login succeeded."
+	   + Register with already exisrting user =  for 409 swagger says "Duplicate Entry" but actual is "Username \"pavan\" already exists"
+   - Register: Empty username gets accepted
+	- Register: Empty password gets accepted
+	- No login check while adding the product to the cart
+	- Add_to_cart api is accepting invalid quantity values
+	- Cart add with "" quantity, breaks with  invalid literal for int() with base 10. Should be handled in dev code
+	- Add cart response message is wrong
+
+   .. code-block::
+
+      (asapp-challenge) pkgovindraj@T3XJ736KQT ASAPP_QA_Automation % curl -s -o -  -w "%{http_code}" -X POST -d  '{"quantity":2}' -H 'Content-Type: application/json' http://localhost:5000/pavan/products/ASAPP%20Pens/add
+      "QTY \"4\" of product \"ASAPP Pens\" added to cart"
+      200%
+      (asapp-challenge) pkgovindraj@T3XJ736KQT ASAPP_QA_Automation %
+      
+   - Response message could be better 
+      + EG "Product \"PP Pens\" does not exist." can be proper like "Product "PP Pens" does not exist."
+
+(2) Improvement in framework
+	- Test_login.py have 2 jsons(one for positive cases, one for negative cases) so we can have setup method to register user in login positive case
+   - Factory pattern
+
+(3) Improvement in product 
+	- Implement "Remove specific quantity of a product from Cart" feature.
+
+(4) HTTPS support
+
