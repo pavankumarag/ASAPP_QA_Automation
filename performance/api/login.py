@@ -35,6 +35,8 @@ class UserLogin(HttpUser):
         """
         Login endpoint under load test
         """
+        self.username = config.get_config()["login"]["USERNAME"]
+        self.password = config.get_config()["login"]["PASSWORD"]
         req_json = {"username": self.username, "password": self.password}
         headers = {'Content-Type': 'application/json'}
         self.client.post("/users/login", headers=headers, json=req_json)
