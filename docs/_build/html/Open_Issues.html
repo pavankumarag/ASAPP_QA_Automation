@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Open Issues &#8212; ASAPP_QA_Automation  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="CI/CD" href="CI_CD.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="open-issues">
+<h1>Open Issues<a class="headerlink" href="#open-issues" title="Permalink to this heading">¶</a></h1>
+<ol class="arabic simple">
+<li><p>Bugs</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>Descrepancy in swagger UI response message to actual message</dt><dd><ul>
+<li><p>Login 200 OK case -&gt; Swagger says “Operation successful”  but actual is “Login succeeded.”</p></li>
+<li><p>Register with already exisrting user =  for 409 swagger says “Duplicate Entry” but actual is “Username &quot;pavan&quot; already exists”</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Register: Empty username gets accepted</dt><dd><ul>
+<li><p>Register: Empty password gets accepted</p></li>
+<li><p>No login check while adding the product to the cart</p></li>
+<li><p>Add_to_cart api is accepting invalid quantity values</p></li>
+<li><p>Cart add with “” quantity, breaks with  invalid literal for int() with base 10. Should be handled in dev code</p></li>
+<li><p>Add cart response message is wrong</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">asapp</span><span class="o">-</span><span class="n">challenge</span><span class="p">)</span> <span class="n">pkgovindraj</span><span class="nd">@T3XJ736KQT</span> <span class="n">ASAPP_QA_Automation</span> <span class="o">%</span> <span class="n">curl</span> <span class="o">-</span><span class="n">s</span> <span class="o">-</span><span class="n">o</span> <span class="o">-</span>  <span class="o">-</span><span class="n">w</span> <span class="s2">&quot;%</span><span class="si">{http_code}</span><span class="s2">&quot;</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="o">-</span><span class="n">d</span>  <span class="s1">&#39;{&quot;quantity&quot;:2}&#39;</span> <span class="o">-</span><span class="n">H</span> <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">5000</span><span class="o">/</span><span class="n">pavan</span><span class="o">/</span><span class="n">products</span><span class="o">/</span><span class="n">ASAPP</span><span class="o">%</span><span class="mi">20</span><span class="n">Pens</span><span class="o">/</span><span class="n">add</span>
+<span class="s2">&quot;QTY </span><span class="se">\&quot;</span><span class="s2">4</span><span class="se">\&quot;</span><span class="s2"> of product </span><span class="se">\&quot;</span><span class="s2">ASAPP Pens</span><span class="se">\&quot;</span><span class="s2"> added to cart&quot;</span>
+<span class="mi">200</span><span class="o">%</span>
+<span class="p">(</span><span class="n">asapp</span><span class="o">-</span><span class="n">challenge</span><span class="p">)</span> <span class="n">pkgovindraj</span><span class="nd">@T3XJ736KQT</span> <span class="n">ASAPP_QA_Automation</span> <span class="o">%</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Response message could be better</dt><dd><ul>
+<li><p>EG “Product &quot;PP Pens&quot; does not exist.” can be proper like “Product “PP Pens” does not exist.”</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><dl class="simple">
+<dt>Improvement in framework</dt><dd><ul class="simple">
+<li><p>Test_login.py have 2 jsons(one for positive cases, one for negative cases) so we can have setup method to register user in login positive case</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>Factory pattern</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><dl class="simple">
+<dt>Improvement in product</dt><dd><ul class="simple">
+<li><p>Implement “Remove specific quantity of a product from Cart” feature.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>HTTPS support</p></li>
+</ol>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">ASAPP_QA_Automation</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Pre-requisites.html">Pre-requisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Test_Strategy.html">Test Strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tech_stack.html">Tech stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="How_to_Run.html">How to Run</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Reporting.html">Reporting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CI_CD.html">CI/CD</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Open Issues</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="CI_CD.html" title="previous chapter">CI/CD</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Pavan Kumar A G.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 6.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/Open_Issues.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

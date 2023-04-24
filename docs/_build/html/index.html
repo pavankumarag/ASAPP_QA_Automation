@@ -14,6 +14,7 @@
     <script src="_static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduction" href="Introduction.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -32,6 +33,29 @@
             
   <section id="welcome-to-asapp-qa-automation-s-documentation">
 <h1>Welcome to ASAPP_QA_Automation’s documentation!<a class="headerlink" href="#welcome-to-asapp-qa-automation-s-documentation" title="Permalink to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Pre-requisites.html">Pre-requisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Test_Strategy.html">Test Strategy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Test_Strategy.html#api-layer-testing">(1) API layer testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Test_Strategy.html#ui-layer-testing">(2) UI layer testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Test_Strategy.html#api-benchmarking">(3) API Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Test_Strategy.html#api-performance">(4) API performance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Tech_stack.html">Tech stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="How_to_Run.html">How to Run</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="How_to_Run.html#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How_to_Run.html#standalone">(1) Standalone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How_to_Run.html#docker">(2) Docker</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Reporting.html">Reporting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CI_CD.html">CI/CD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Open_Issues.html">Open Issues</a></li>
+</ul>
+</div>
 <section id="indices-and-tables">
 <h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
@@ -142,8 +166,8 @@
 <section id="how-to-run">
 <h1>How to Run<a class="headerlink" href="#how-to-run" title="Permalink to this heading">¶</a></h1>
 <p>There are two ways to run</p>
-<section id="startup">
-<h2>Startup<a class="headerlink" href="#startup" title="Permalink to this heading">¶</a></h2>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">¶</a></h2>
 <p>Download the zip, from the root directory run docker-compose</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">up</span> <span class="o">-</span><span class="n">d</span>
 
@@ -182,9 +206,9 @@
 <span class="linenos">18</span>   <span class="o">-</span> <span class="n">locust</span> <span class="o">-</span><span class="n">f</span> <span class="n">performance</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">login</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">headless</span> <span class="o">-</span><span class="n">u</span> <span class="mi">100</span> <span class="o">-</span><span class="n">r</span> <span class="mi">5</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="2">
-<li><p>Docker</p></li>
-</ol>
+</section>
+<section id="docker">
+<h2>(2) Docker<a class="headerlink" href="#docker" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">ti</span> <span class="n">qa_auto_challenge_prj</span><span class="o">-</span><span class="n">qa</span><span class="o">-</span><span class="mi">1</span> <span class="n">bash</span>
 
 <span class="n">pytest</span> <span class="o">-</span><span class="n">sv</span> <span class="n">api</span><span class="o">/</span><span class="n">tests</span>
@@ -309,11 +333,22 @@
 
 
 <h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Pre-requisites.html">Pre-requisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Test_Strategy.html">Test Strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tech_stack.html">Tech stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="How_to_Run.html">How to Run</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Reporting.html">Reporting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CI_CD.html">CI/CD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Open_Issues.html">Open Issues</a></li>
+</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="Introduction.html" title="next chapter">Introduction</a></li>
   </ul></li>
 </ul>
 </div>

@@ -6,6 +6,16 @@
 Welcome to ASAPP_QA_Automation's documentation!
 ===============================================
 
+.. toctree::
+   Introduction
+   Pre-requisites
+   Test_Strategy
+   Tech_stack
+   How_to_Run
+   Reporting
+   CI_CD
+   Open_Issues
+
 Indices and tables
 -------------------
 
@@ -110,7 +120,7 @@ How to Run
 
 There are two ways to run
 
-Startup
+Setup
 --------
 
 Download the zip, from the root directory run docker-compose
@@ -159,6 +169,7 @@ Download the zip and framework structure is defined in Pre-requisites section.
       - locust -f performance/api/login.py --headless -u 100 -r 5
 
 (2) Docker
+-------------
 
 .. code-block::
 
