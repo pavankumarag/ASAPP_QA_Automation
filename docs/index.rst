@@ -103,7 +103,8 @@ Tech stack
 (3) html reporting
 (4) docker selenium and webdriver manager
 (5) github actions
-
+(6) documentation: sphinx and readthedocs 
+ 
 How to Run
 ===========
 
