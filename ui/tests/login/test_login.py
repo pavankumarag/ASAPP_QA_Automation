@@ -39,7 +39,6 @@ class TestLogin(object):
 			#Generating random username for login to fail
 			metadata["username"] += str(time.time())
 		LOG.info("Logging in with the username {}".format(metadata["username"]))
-		driver.get("http://localhost:3000")
 		login = Login_facade(driver)
 		if response["code"] == "200":
 			assert login.login(metadata["username"], metadata["password"]) == True

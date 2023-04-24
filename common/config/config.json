@@ -18,5 +18,9 @@
         "GET_CART": "/{username}/products/cart",
         "CHECKOUT_CART": "/{username}/products/cart/checkout",
         "REMOVE_FROM_CART": "/{username}/products/cart/{product_name}/remove"
+    },
+    "ui":{
+        "GRID_HOST_NAME": "localhost",
+        "PRODUCT_UI_URL": "localhost"
     }
 }

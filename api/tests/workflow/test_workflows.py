@@ -23,7 +23,7 @@ class TestWorkflow(object):
 		user_actions = UserActions(rest=rest)
 		product_actions = ProductActions(rest=rest)
 		LOG.info("login to the portal")
-		user_actions.login()
+		user_actions.login(check_register=True)
 		LOG.info("Add product of some quantity of the product to the cart")
 		product_actions.add_to_cart(product_name="ASAPP Pens", quantity=1)
 
@@ -36,7 +36,7 @@ class TestWorkflow(object):
 		user_actions = UserActions(rest=rest)
 		product_actions = ProductActions(rest=rest)
 		LOG.info("login to the portal")
-		user_actions.login()
+		user_actions.login(check_register=True)
 		LOG.info("Add product of some quantity of the product to the cart")
 		product_actions.add_to_cart(product_name="ASAPP Pens", quantity=1)
 		LOG.info("Checking out from the cart")

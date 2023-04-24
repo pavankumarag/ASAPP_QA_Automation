@@ -26,7 +26,6 @@ class TestCheckout(object):
 			response: response for REST login calls
 			metadata: metadata for the test
 		"""
-		driver.get("http://localhost:3000")
 		# First login
 		login = Login_facade(driver)
 		login.login()

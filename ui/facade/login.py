@@ -38,6 +38,7 @@ class Login_facade:
             username: Defaults to None, when none, reads from config json
             password: Defaults to None, when none, reads from config json
         """
+        check_for_registered = False
         LOG.info("logging in to the store")
         config = Config()
         if username is None:

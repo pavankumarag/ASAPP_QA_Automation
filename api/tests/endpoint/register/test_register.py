@@ -30,8 +30,8 @@ class TestRegisterEndpoint(object):
 			metadata: metadata for the test
 		"""
 		if response["code"] == "200" or testcase == "Empty password":
-			LOG.info("To simulate new user always appending epoch to username")
 			req["username"] = req["username"] + str(time.time())
+			LOG.info("To simulate new user always appending epoch to username {}".format(req["username"]))
 		headers = {'Content-Type': 'application/json'}
 		relative_url = config.get_config()['endpoints']["REGISTER_USER"]
 		res = rest.post(relative_url=relative_url, headers=headers, data=req, raw_response=True)
